@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: MIT License
+// Copyright (C) 2020 Advanced Micro Devices, Inc. 
+//
+// amd\_ucode\_info\_rs is my personal project porting Python to Rust.
+// Copyright (c) 2022 Umio Yasuno
+
 use std::io;
 use std::io::{ErrorKind, Read, Seek, SeekFrom, Write};
 use std::fs;
@@ -73,7 +79,7 @@ fn extract_patch(extract_dir: &String, patch_start: u64, patch_length: u32, ucod
 
         buf
     };
-    
+
     let mut patch_file = File::create(&path)?;
     patch_file.write_all(&patch_bin)?;
 
