@@ -104,7 +104,9 @@ fn main() -> io::Result<()> {
     let mut ucode_file = File::open(&opt.ucode_path)?;
 
     if let Some(file_name) = Path::new(&opt.ucode_path).file_name() {
-        println!("Microcode patches in {file_name:?}:");
+        if let Some(name_str) = file_name.to_str() {
+            println!("Microcode patches in {name_str}:");
+        }
     }
 
     ucode_file.seek(SeekFrom::Start(0))?;
